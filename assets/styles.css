@@ -3,16 +3,37 @@
     box-shadow: 0px 0px 25px 0px rgba(87, 85, 87, 1);
 }
 
-.columns {
-    margin-top: 20px;
-}
-
 .content {
     padding-left: 30px;
+}
+
+.hero.is-light .hero-body .container .subtitle .link {
+    color: #3273dc;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.footer {
+    font-size: 1.2rem;
+}
+
+.footer p a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-contact {
+    font-size: 1.5rem;
+    margin-right: 5px;
 }
 
 @media only screen and (max-width: 768px) {
     .profile-pic {
         width: 70%;
+    }
+
+    .content {
+        padding-left: .75rem;
     }
 }
