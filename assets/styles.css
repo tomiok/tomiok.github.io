@@ -233,7 +233,9 @@ a:hover {
     }
 }
 
-section[id] {
+section[id],
+.feature[id],
+.card[id] {
     scroll-margin-top: 5rem;
 }
 

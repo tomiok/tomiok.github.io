@@ -19,7 +19,7 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tomas Lingotti — Backend developer</title>
-    <meta name="description" content="Tomas Lingotti is a backend developer from Rosario, Argentina. Mostly Go, also Rust — monoliths, microservices, REST APIs, and event-driven systems.">
+    <meta name="description" content="Tomas Lingotti builds backend systems in Go and Rust, from APIs and event-driven services down to search, caching, and message delivery. Rosario, Argentina.">
     <meta name="author" content="Tomas Lingotti">
     <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#121410" media="(prefers-color-scheme: dark)">
@@ -27,14 +27,14 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Tomas Lingotti">
     <meta property="og:title" content="Tomas Lingotti — Backend developer">
-    <meta property="og:description" content="Backend developer from Rosario, Argentina. Mostly Go, also working in Rust.">
+    <meta property="og:description" content="Backend systems in Go and Rust, from APIs and event-driven services down to search, caching, and message delivery.">
     <meta property="og:url" content="https://tomiok.github.io/">
     <meta property="og:image" content="https://tomiok.github.io/assets/images/profile.jpg">
     <meta property="og:image:alt" content="Tomas Lingotti">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tomas Lingotti — Backend developer">
-    <meta name="twitter:description" content="Backend developer from Rosario, Argentina. Mostly Go, also working in Rust.">
+    <meta name="twitter:description" content="Backend systems in Go and Rust, from APIs and event-driven services down to search, caching, and message delivery.">
     <meta name="twitter:image" content="https://tomiok.github.io/assets/images/profile.jpg">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -102,9 +102,6 @@
                 </div>
                 <div class="hero-copy">
                     <p class="lede">
-                        I am a backend developer. Most of my work is in Go, and I also work in Rust.
-                        I have been in the industry for several years, across many technologies and languages,
-                        with experience in monoliths, microservices, REST APIs, event-driven applications, and more.
                         <a href="https://www.linkedin.com/in/tomaslingotti" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
                         has a more detailed account.
                     </p>
@@ -132,22 +129,13 @@
                 <h2 id="about-heading">About</h2>
                 <div class="about">
                     <p>
-                        I was born in Rosario, Argentina. I like playing sports, especially football, and spending time
-                        with my family. Watching movies is another hobby, especially drama, science fiction, action, and comedy.
-                        My favourite director is Martin Scorsese.
+                        I build backend systems, mostly in Go and lately in Rust. My work spans monoliths and microservices, REST APIs, event-driven architectures, and services that talk over raw TCP, queues, and CLIs. I deploy cloud-native workloads on AWS, Google Cloud, and DigitalOcean, and I come from a strong security background.
                     </p>
                     <p>
-                        I can work on cloud-native apps using AWS, DigitalOcean, and Google Cloud, and I also like working
-                        on engines that process data, or with other interfaces: TCP, the command line, and queues.
-                        I have a strong background in security.
+                        What I enjoy most is the layer below the application: storage engines, indexing, caching, and message delivery. <a href="#persia-db">Persia DB</a> is an embedded full-text search engine in Rust with BM25 ranking and typo tolerance. <a href="#queuety">Queuety</a> is an at-least-once message broker on top of BadgerDB. <a href="#fuego-cache">Fuego</a> is a concurrent, disk-persistent key-value cache with HTTP, TCP, and CLI interfaces.
                     </p>
                     <p>
-                        Besides that, I always try to keep myself up to date with everything related to my tech stack.
-                        Reading books, and keeping public repositories on GitHub, helps me a lot with that.
-                    </p>
-                    <p>
-                        I enjoy using Go for new experimental projects in my free time, like my own cache, a web scraper,
-                        or trying WebAssembly.
+                        I learn by building: reading papers and books, then implementing the ideas as open-source projects.
                     </p>
                 </div>
             </div>
@@ -163,7 +151,7 @@
                 </p>
 
                 <div class="features">
-                    <article class="feature feature-persia">
+                    <article class="feature feature-persia" id="persia-db">
                         <div class="feature-copy">
                             <p class="feature-kicker">Featured</p>
                             <h3 class="feature-title"><a href="https://github.com/tomiok/persiaDB" rel="noopener noreferrer" target="_blank">Persia DB</a></h3>
@@ -196,7 +184,7 @@
                     <article class="feature feature-terrex">
                         <div class="feature-copy">
                             <p class="feature-kicker">Featured</p>
-                            <h3 class="feature-title"><a href="https://github.com/tomiok/terrex-web" rel="noopener noreferrer" target="_blank">Terrex</a></h3>
+                            <h3 class="feature-title"><a href="https://terrex.lat" rel="noopener noreferrer" target="_blank">Terrex</a></h3>
                             <p class="tagline">A human-curated web search engine.</p>
                             <p>
                                 Frontend for Terrex, an open-source web search engine with a human-curated index.
@@ -219,20 +207,21 @@
                             </div>
                         </dl>
                         <div class="feature-actions">
-                            <a class="btn btn-primary" href="https://github.com/tomiok/terrex-web" rel="noopener noreferrer" target="_blank">Repository</a>
+                            <a class="btn btn-primary" href="https://terrex.lat" rel="noopener noreferrer" target="_blank">terrex.lat</a>
+                            <a class="btn" href="https://github.com/tomiok/terrex-web" rel="noopener noreferrer" target="_blank">Repository</a>
                         </div>
                     </article>
                 </div>
 
                 <p class="subhead">More repositories</p>
                 <div class="project-grid">
-                    <a class="card" href="https://github.com/tomiok/queuety" rel="noopener noreferrer" target="_blank">
+                    <a class="card" id="queuety" href="https://github.com/tomiok/queuety" rel="noopener noreferrer" target="_blank">
                         <h3>Queuety</h3>
                         <p class="repo-path">tomiok/queuety</p>
                         <p>At least once delivery message broker, built on BadgerDB. TCP based.</p>
                         <span class="lang lang-go"><i></i>Go</span>
                     </a>
-                    <a class="card" href="https://github.com/tomiok/fuego-cache" rel="noopener noreferrer" target="_blank">
+                    <a class="card" id="fuego-cache" href="https://github.com/tomiok/fuego-cache" rel="noopener noreferrer" target="_blank">
                         <h3>Fuego cache</h3>
                         <p class="repo-path">tomiok/fuego-cache</p>
                         <p>Concurrent hashed key-value cache written in Go, with HTTP, plain TCP, and CLI interfaces, and persistence on disk.</p>
