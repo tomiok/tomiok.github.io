@@ -1,97 +1,344 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem("theme");
+                var theme = stored === "light" || stored === "dark"
+                    ? stored
+                    : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+            } catch (e) {}
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TomiOk website</title>
-    <link rel="stylesheet" href="assets/bulma.min.css">
+    <title>Tomas Lingotti — Backend developer</title>
+    <meta name="description" content="Tomas Lingotti is a backend developer from Rosario, Argentina. Mostly Go, also Rust — monoliths, microservices, REST APIs, and event-driven systems.">
+    <meta name="author" content="Tomas Lingotti">
+    <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121410" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="https://tomiok.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Tomas Lingotti">
+    <meta property="og:title" content="Tomas Lingotti — Backend developer">
+    <meta property="og:description" content="Backend developer from Rosario, Argentina. Mostly Go, also working in Rust.">
+    <meta property="og:url" content="https://tomiok.github.io/">
+    <meta property="og:image" content="https://tomiok.github.io/assets/images/profile.jpg">
+    <meta property="og:image:alt" content="Tomas Lingotti">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tomas Lingotti — Backend developer">
+    <meta name="twitter:description" content="Backend developer from Rosario, Argentina. Mostly Go, also working in Rust.">
+    <meta name="twitter:image" content="https://tomiok.github.io/assets/images/profile.jpg">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="icon" href="bomb.png">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Tomas Lingotti",
+            "alternateName": "tomiok",
+            "jobTitle": "Backend developer",
+            "url": "https://tomiok.github.io/",
+            "image": "https://tomiok.github.io/assets/images/profile.jpg",
+            "email": "mailto:tomaslingotti@gmail.com",
+            "homeLocation": {
+                "@type": "Place",
+                "name": "Rosario, Argentina"
+            },
+            "sameAs": [
+                "https://github.com/tomiok",
+                "https://www.linkedin.com/in/tomaslingotti"
+            ],
+            "knowsAbout": ["Go", "Rust", "Backend development", "REST APIs", "Microservices"]
+        }
+    </script>
 </head>
-
-<body>
-<section class="hero is-light">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Hi!
-
-            </h1>
-            <h2 class="subtitle">
-                I am Tomas Lingotti, backend developer (mostly Golang) - I have worked in the industry for several years
-                among many technologies and languages.
-                Expertise in monolitichs, microservices, REST APIs, Event Driven apps and so on!. You can visit my
-                <a class="link" href="https://www.linkedin.com/in/tomaslingotti" target="_blank">LinkedIn account</a>
-                for more
-                detailed
-                explanation.
-            </h2>
+<body id="top">
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="wordmark" href="#top">Tomas Lingotti</a>
+            <nav class="nav" aria-label="Page">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode">
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+                </svg>
+            </button>
         </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-one-quarter has-text-centered-mobile">
-                <img class="profile-pic" src="assets/images/profile.jpg" alt="Profile picture">
-            </div>
-            <div class="column content">
-                <h1 class="title">About me</h1>
-                <p>
-                    I am 30, I was born in Rosario, Argentina. I like playing sports, specially football and spend time
-                    with
-                    my family.
-                    Watching movies is another hobbie for me, specially drama, sc fiction action and comedy. My
-                    favourite
-                    director is Martin Scorsese.
-                </p>
-                <p>
-                    You can also try my <a href="https://www.youtube.com/tomaslingotti">YouTube channel!</a> and see some Golang videos in Spanish.
-                </p>
-                <p>
-                    I can work in cloud native apps using AWS, Digital Ocean, Google Cloud, etc... but I also like working on engines processing data or with other
-                    interfaces, TCP, command line interface, queues.
-                    
-                    I have a strong background in security.
-                </p>
-                <p>
-                    Besides that, I always try to keep my self up-to-date in all the things related with my tech stack.
-                    Reading books
-                    and have some repos in my public github help me a lot with that.
-                </p>
-                <p>I enjoy using Golang for new experimental projects in my free time, like my own cache, web scrapper or trying webassembly.
-                </p>
-                <h1 class="title">My current open source project</h1>
-                <h2 class="subtitle">Fuego cache is what I am working on in my free time.</h2>
-                <p>You can reach out <a href="https://www.github.com/tomiok/fuego-cache">here</a> my github repo, fill free to
-                    create
-                    any Pull Request or address any issue. </br>
-                    This cache is a distributed and persistent service, but you can use it as a in-memory service as well. The landing for the cache is WIP, 
-                    either the service itself.
-                </p>
-                
-            </div>
-        </div>
-    </div>
-</section>
-<footer class="footer">
-    <div class="content has-text-centered">
-        <h1 class="title">Contact me!</h1>
-        <p>
-            <a href="mailto:tomaslingotti@gmail.com">
-                <i class="icon icon-contact fas fa-envelope"></i>
-                <span>tomaslingotti@gmail.com</span>
-            </a>
-        </p>
-        <p>
-            <a href="">
-                <i class="icon-contact fab fa-instagram"></i>
-                <span>_tomasitoo</span>
-            </a>
-        </p>
+    </header>
 
-    </div>
-</footer>
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <main id="content">
+        <section class="hero" aria-labelledby="intro-heading">
+            <div class="wrap hero-grid">
+                <div class="portrait-wrap">
+                    <picture>
+                        <source srcset="assets/images/profile.webp" type="image/webp">
+                        <img class="portrait" src="assets/images/profile.jpg" width="1400" height="1339" alt="Tomas Lingotti" fetchpriority="high" decoding="async">
+                    </picture>
+                </div>
+                <div class="hero-intro">
+                    <p class="eyebrow">Backend developer</p>
+                    <h1 id="intro-heading">Tomas Lingotti</h1>
+                    <p class="place">Rosario, Argentina</p>
+                </div>
+                <div class="hero-copy">
+                    <p class="lede">
+                        I am a backend developer. Most of my work is in Go, and I also work in Rust.
+                        I have been in the industry for several years, across many technologies and languages,
+                        with experience in monoliths, microservices, REST APIs, event-driven applications, and more.
+                        <a href="https://www.linkedin.com/in/tomaslingotti" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+                        has a more detailed account.
+                    </p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="https://github.com/tomiok" rel="me noopener noreferrer" target="_blank">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            GitHub
+                        </a>
+                        <a class="btn" href="https://www.linkedin.com/in/tomaslingotti" rel="me noopener noreferrer" target="_blank">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a class="btn" href="mailto:tomaslingotti@gmail.com">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section band" id="about" aria-labelledby="about-heading">
+            <div class="wrap">
+                <p class="kicker">01</p>
+                <h2 id="about-heading">About</h2>
+                <div class="about">
+                    <p>
+                        I was born in Rosario, Argentina. I like playing sports, especially football, and spending time
+                        with my family. Watching movies is another hobby, especially drama, science fiction, action, and comedy.
+                        My favourite director is Martin Scorsese.
+                    </p>
+                    <p>
+                        I can work on cloud-native apps using AWS, DigitalOcean, and Google Cloud, and I also like working
+                        on engines that process data, or with other interfaces: TCP, the command line, and queues.
+                        I have a strong background in security.
+                    </p>
+                    <p>
+                        Besides that, I always try to keep myself up to date with everything related to my tech stack.
+                        Reading books, and keeping public repositories on GitHub, helps me a lot with that.
+                    </p>
+                    <p>
+                        I enjoy using Go for new experimental projects in my free time, like my own cache, a web scraper,
+                        or trying WebAssembly.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects" aria-labelledby="projects-heading">
+            <div class="wrap">
+                <p class="kicker">02</p>
+                <h2 id="projects-heading">Projects</h2>
+                <p class="section-intro">
+                    Public repositories. Persia DB, an embedded search database in Rust, comes first.
+                    Terrex, a human-curated web search engine, is next.
+                </p>
+
+                <div class="features">
+                    <article class="feature feature-persia">
+                        <div class="feature-copy">
+                            <p class="feature-kicker">Featured</p>
+                            <h3 class="feature-title"><a href="https://github.com/tomiok/persiaDB" rel="noopener noreferrer" target="_blank">Persia DB</a></h3>
+                            <p class="tagline">Think SQLite for search.</p>
+                            <p>
+                                An embedded, single-file search database, written in Rust. Fast, typo-tolerant search inside
+                                your app — no server, no cluster. Go and TypeScript SDKs are planned.
+                            </p>
+                        </div>
+                        <dl class="meta">
+                            <div>
+                                <dt>Language</dt>
+                                <dd>Rust</dd>
+                            </div>
+                            <div>
+                                <dt>License</dt>
+                                <dd>Apache-2.0</dd>
+                            </div>
+                            <div>
+                                <dt>Topics</dt>
+                                <dd>full-text search, embedded database, BM25</dd>
+                            </div>
+                        </dl>
+                        <div class="feature-actions">
+                            <a class="btn btn-primary" href="https://github.com/tomiok/persiaDB" rel="noopener noreferrer" target="_blank">Repository</a>
+                            <a class="btn" href="https://tomiok.github.io/persiaDB/" rel="noopener noreferrer" target="_blank">Documentation</a>
+                        </div>
+                    </article>
+
+                    <article class="feature feature-terrex">
+                        <div class="feature-copy">
+                            <p class="feature-kicker">Featured</p>
+                            <h3 class="feature-title"><a href="https://github.com/tomiok/terrex-web" rel="noopener noreferrer" target="_blank">Terrex</a></h3>
+                            <p class="tagline">A human-curated web search engine.</p>
+                            <p>
+                                Frontend for Terrex, an open-source web search engine with a human-curated index.
+                                No tracking, no ads, and no AI overviews — just links. The public repository is
+                                <a class="inline-repo" href="https://github.com/tomiok/terrex-web" rel="noopener noreferrer" target="_blank">terrex-web</a>, a SvelteKit app that talks to the Terrex REST API.
+                            </p>
+                        </div>
+                        <dl class="meta">
+                            <div>
+                                <dt>Repository</dt>
+                                <dd>terrex-web</dd>
+                            </div>
+                            <div>
+                                <dt>Language</dt>
+                                <dd>Svelte</dd>
+                            </div>
+                            <div>
+                                <dt>License</dt>
+                                <dd>GPL-3.0-or-later</dd>
+                            </div>
+                        </dl>
+                        <div class="feature-actions">
+                            <a class="btn btn-primary" href="https://github.com/tomiok/terrex-web" rel="noopener noreferrer" target="_blank">Repository</a>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="subhead">More repositories</p>
+                <div class="project-grid">
+                    <a class="card" href="https://github.com/tomiok/queuety" rel="noopener noreferrer" target="_blank">
+                        <h3>Queuety</h3>
+                        <p class="repo-path">tomiok/queuety</p>
+                        <p>At least once delivery message broker, built on BadgerDB. TCP based.</p>
+                        <span class="lang lang-go"><i></i>Go</span>
+                    </a>
+                    <a class="card" href="https://github.com/tomiok/fuego-cache" rel="noopener noreferrer" target="_blank">
+                        <h3>Fuego cache</h3>
+                        <p class="repo-path">tomiok/fuego-cache</p>
+                        <p>Concurrent hashed key-value cache written in Go, with HTTP, plain TCP, and CLI interfaces, and persistence on disk.</p>
+                        <span class="lang lang-go"><i></i>Go</span>
+                    </a>
+                    <a class="card" href="https://github.com/tomiok/vaultik" rel="noopener noreferrer" target="_blank">
+                        <h3>Vaultik</h3>
+                        <p class="repo-path">tomiok/vaultik</p>
+                        <p>Cloud-agnostic secret manager to create, read, update, and delete variables. Values are encrypted, and can be exported to a remote location or any cloud.</p>
+                        <span class="lang lang-go"><i></i>Go</span>
+                    </a>
+                    <a class="card" href="https://github.com/tomiok/patients-API" rel="noopener noreferrer" target="_blank">
+                        <h3>Patients API</h3>
+                        <p class="repo-path">tomiok/patients-API</p>
+                        <p>Proof of concept using Go, Chi, PostgreSQL, Docker, and Docker Compose. Exposes REST API endpoints.</p>
+                        <span class="lang lang-go"><i></i>Go</span>
+                    </a>
+                    <a class="card" href="https://github.com/tomiok/webh" rel="noopener noreferrer" target="_blank">
+                        <h3>Webh</h3>
+                        <p class="repo-path">tomiok/webh</p>
+                        <p>Self-contained Go library with a production-ready web server, including safe startup and shutdown, middlewares, and error handling.</p>
+                        <span class="lang lang-go"><i></i>Go</span>
+                    </a>
+                    <a class="card" href="https://github.com/tomiok/minesweeper-API" rel="noopener noreferrer" target="_blank">
+                        <h3>Minesweeper API</h3>
+                        <p class="repo-path">tomiok/minesweeper-API</p>
+                        <p>REST API for the Minesweeper game, using Go, Redis, and Docker.</p>
+                        <span class="lang lang-go"><i></i>Go</span>
+                    </a>
+                </div>
+                <p class="all-repos">
+                    <a href="https://github.com/tomiok?tab=repositories" rel="noopener noreferrer" target="_blank">All public repositories</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section band" id="contact" aria-labelledby="contact-heading">
+            <div class="wrap">
+                <p class="kicker">03</p>
+                <h2 id="contact-heading">Contact</h2>
+                <p class="section-intro">Email is the best way to reach me.</p>
+                <a class="email" href="mailto:tomaslingotti@gmail.com">tomaslingotti@gmail.com</a>
+                <ul class="contact-links">
+                    <li><a class="btn" href="https://github.com/tomiok" rel="me noopener noreferrer" target="_blank">GitHub</a></li>
+                    <li><a class="btn" href="https://www.linkedin.com/in/tomaslingotti" rel="me noopener noreferrer" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <p>Tomas Lingotti · Rosario, Argentina</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var button = document.getElementById("theme-toggle");
+            var navLinks = document.querySelectorAll('.nav a');
+
+            function currentTheme() {
+                return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+            }
+
+            function paint(theme) {
+                var dark = theme === "dark";
+                button.setAttribute("aria-pressed", dark ? "true" : "false");
+                button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+                document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+                    meta.setAttribute("content", dark ? "#121410" : "#f6f3ec");
+                    meta.removeAttribute("media");
+                });
+            }
+
+            paint(currentTheme());
+
+            button.addEventListener("click", function () {
+                var next = currentTheme() === "dark" ? "light" : "dark";
+                document.documentElement.setAttribute("data-theme", next);
+                try {
+                    localStorage.setItem("theme", next);
+                } catch (e) {}
+                paint(next);
+            });
+
+            if ("IntersectionObserver" in window) {
+                var sections = ["about", "projects", "contact"].map(function (id) {
+                    return document.getElementById(id);
+                });
+                var byId = {};
+                navLinks.forEach(function (link) {
+                    var id = (link.getAttribute("href") || "").slice(1);
+                    if (id) byId[id] = link;
+                });
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var link = byId[entry.target.id];
+                        if (!link) return;
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(function (item) { item.removeAttribute("aria-current"); });
+                            link.setAttribute("aria-current", "true");
+                        }
+                    });
+                }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+                sections.forEach(function (section) {
+                    if (section) observer.observe(section);
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
