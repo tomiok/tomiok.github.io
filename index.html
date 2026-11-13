@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <script>
         (function () {
+            var stored = null;
             try {
-                var stored = localStorage.getItem("theme");
-                var theme = stored === "light" || stored === "dark"
-                    ? stored
-                    : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-                document.documentElement.setAttribute("data-theme", theme);
+                stored = localStorage.getItem("theme");
             } catch (e) {}
+            var theme = stored === "light" || stored === "dark" ? stored : "light";
+            if (theme === "light" && stored !== "light") {
+                try {
+                    if (matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+                } catch (e) {}
+            }
+            document.documentElement.setAttribute("data-theme", theme);
         })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -331,6 +335,8 @@
                         if (entry.isIntersecting) {
                             navLinks.forEach(function (item) { item.removeAttribute("aria-current"); });
                             link.setAttribute("aria-current", "true");
+                        } else if (link.getAttribute("aria-current") === "true") {
+                            link.removeAttribute("aria-current");
                         }
                     });
                 }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
